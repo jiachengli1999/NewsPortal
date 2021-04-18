@@ -8,4 +8,7 @@ Weather API: https://openweathermap.org/api
 Twilio's SendGrid API: https://sendgrid.com/  
 ## About
 A news portal that allows users to view the latest news and browse the trendy sport topics. Users will also be able to check their current weather, and the news are maintained by the admin.
-
+## Collaborators 
+Liam Brown (spaceSEED)  
+Nicholas DeMarco (Ndemco)  
+Ammar Essajee (ammaressajee)  
