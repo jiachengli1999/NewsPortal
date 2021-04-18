@@ -1,0 +1,28 @@
+.text-area{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.article{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.article-header{
+    justify-content: center;
+}
+.article-body{
+    justify-content: flex-start;
+    white-space: pre-line;
+}
+
+.article-description{
+    font-size: 20px;
+}
+
+.trending-news:hover{
+    border: 1px solid black;
+}
+

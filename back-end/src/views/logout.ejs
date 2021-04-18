@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <%-include ./header.ejs%>
+        <div class="page-wrap d-flex flex-row align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div style="margin-top: 15%;" class="col-md-12 text-center">
+                        <span class="display-1 d-block">Goodbye!</span>
+                        <div class="mb-4 lead">You have successfully logged out!</div>
+                        <a href="/" style="margin-bottom: -100px;" class="btn btn-link">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-include ./footer.ejs%>
+
+            <style>
+                body,
+                html {
+                    margin: 0;
+                    padding: 0;
+                    height: 100%;
+                    background: #60a3bc !important;
+                }
+
+                .page-wrap {
+                    min-height: 50vh;
+                }
+            </style>
+</body>
+
+</html>

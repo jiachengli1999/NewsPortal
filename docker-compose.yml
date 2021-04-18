@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  backend:
+    container_name: backend
+    restart: always
+    build: .
+      # context: .
+      # dockerfile: ./back-end/Dockerfile
+    ports:
+      - 3000:3000
+    # working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    external_links:
+      - mongodb
+  # frontend:
+  #   # image: frontend
+  #   build:
+  #     context: .
+  #     dockerfile: ./frontend/Dockerfile
+  #   ports:
+  #     - 4200:4200
+  #   working_dir: /usr/src/app
+  mongodb:
+    image: mongo:latest
+    ports: 
+      - 27017:27017

@@ -1,0 +1,16 @@
+
+.landing-img{
+    position: relative;
+    min-height: 60vh;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1471295253337-3ceaaedca402?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2096&q=80');
+}
+
+.card-img-top{
+    object-fit: cover;
+    height: 300px;
+}
+
+.card:hover{
+    border: 1px solid black;
+}

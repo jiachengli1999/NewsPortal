@@ -1,0 +1,48 @@
+<div class='container mt-5'>
+    <div class='card-container row row-cols-1 row-cols-md-3'>
+        <div class="col mb-4" *ngFor='let news of newsList'>
+            <!-- <div class="card border-dark" style="max-width: 18rem;">
+                    <div class="card-header text-white bg-dark mb-3 text-center pt-3 px-3 pt-md-5 px-md-5 ">
+                        <div class='my-3 py-3'>
+                            {{news.title}}
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{news.date}}</h5>
+                        <p class="card-text">{{news.description}}</p>
+                    </div>
+                </div>
+                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                    <div class="my-3 py-3">
+                      <h2 class="display-5">Another headline</h2>
+                      <p class="lead">And an even wittier subheading.</p>
+                    </div>
+                </div> -->
+            <div class="trending-news shadow-lg rounded" (click)="redirectToNews(news.url)">
+                <div class="bg-dark pt-md-5 text-center text-white overflow-hidden">
+                    <div class="title-area">
+                        <h2 class="display-5">{{news.title|trunc : 70}}</h2>
+                        <p class="lead">{{news.pub_date | date:'mediumDate'}}</p>
+                    </div><br>
+                    <div class="text-area bg-light box-shadow mx-auto">
+                        <p style='color: black;'>{{news.description|trunc : 400}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><hr>
+<div class='bg-light'>
+    <div class='container'>
+        <div class='article article-header'>
+            <h1>{{article?.title}}</h1>
+            <h3>Author: {{article?.author}}</h3>
+            <h5>{{article?.pub_date | date:'mediumDate'}}</h5>
+            <br>
+        </div>
+        <div class='article article-body'>
+            <p class='article-description'>{{article?.description}}</p>
+        </div>
+    </div>
+
+</div>

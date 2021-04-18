@@ -1,0 +1,52 @@
+/* .card-body, .weather{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.weather{
+    padding-top: 20px;
+}
+.weather-search, .weather-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+.weather-search{
+    width: 50%;
+    flex-direction: column;
+}
+.weather-search > form >input {
+    margin: 10px;
+}
+    
+.weather-result{
+    padding-right: 30px;
+    width: 50%;
+} */
+
+form > input{
+    margin-right: 10px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-fluid{
+    max-width: 1200px;
+}
+.row{
+    min-height: 300px;
+}
+
+.sec-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

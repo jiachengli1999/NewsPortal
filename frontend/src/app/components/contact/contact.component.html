@@ -1,0 +1,103 @@
+<body *ngIf="!isSaved; else sent" style="background-color: rgb(226, 226, 226);">
+<br>
+<h1 class='text-center display-4'> Contact Us </h1>
+<hr>
+<br>
+
+<!-- Step #3: batch up form tag with the ts equivalent -->
+<form style="padding: 25px;" class=" bg-light col-md-6 offset-md-3 shadow-lg rounded" [formGroup]="contactForm" method="POST" action="" (ngSubmit)="handleContactForm()">
+    <h4 style="font-size: 35px;" class="text-center display-4">Enter your message below:</h4>
+    <hr><br>
+    <div class="form-group row">
+        <label for="staticName" class="col-sm-2 col-form-label">Name:</label>
+        <div class="col-sm-10">
+            <!-- patch up the input elements with the ts equivalent -->
+            <!-- refer ts for step #5 -->
+            <!-- conditionally display css classes based on form states -->
+            <input type="text" class="form-control" placeholder="Enter Name" formControlName="name"
+                [ngClass]="{ 'is-invalid': contactForm.get('name')?.touched && contactForm.get('name')?.invalid }"
+                [ngClass]="{ 'is-valid': contactForm.get('name')?.touched && contactForm.get('name')?.valid }" />
+            <div class="invalid-feedback">
+                <div>Name is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email:</label>
+        <div class="col-sm-10">
+
+            <!-- conditionally display css classes based on form states -->
+            <input type="text" class="form-control" placeholder="Enter email" formControlName="email"
+                [ngClass]="{ 'is-invalid': contactForm.get('email')?.touched && contactForm.get('email')?.invalid }"
+                [ngClass]="{ 'is-valid': contactForm.get('email')?.touched && contactForm.get('email')?.valid }" />
+
+            <div class="invalid-feedback">
+                <div *ngIf="contactForm.get('email')?.errors?.required">Email is required</div>
+                <div *ngIf="contactForm.get('email')?.invalid && !contactForm.get('email')?.pristine">Email seems to be
+                    invalid</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="staticAddress" class="col-sm-2 col-form-label">Message:</label>
+        <div class="col-sm-10">
+
+            <!-- conditionally display css classes based on form states -->
+            <input type="text" class="form-control" placeholder="Enter message" formControlName="msg"
+                [ngClass]="{ 'is-invalid': contactForm.get('msg')?.touched && contactForm.get('msg')?.invalid }"
+                [ngClass]="{ 'is-valid': contactForm.get('msg')?.touched && contactForm.get('msg')?.valid }" />
+
+            <div class="invalid-feedback">
+                <div *ngIf="contactForm.get('msg')?.errors?.required">Message is required</div>
+                <div *ngIf="contactForm.get('msg')?.invalid && !contactForm.get('msg')?.pristine">Message is too
+                    short...</div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="alert alert-success" *ngIf="isSaved">
+        Saved Successfully
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2 text-center">
+            <!--TODO: disable the button if the form is invalid in angular-->
+            <button type="submit" class="btn btn-primary" *ngIf="contactForm?.valid">Submit</button>
+            <button type="button" disabled class="btn btn-danger" *ngIf="contactForm?.invalid">Submit</button> <br><br>
+            <!-- NG if has logic for contact form error message -->
+            <h4 style="font-size: 30px;" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid || contactForm.get('email')?.touched && contactForm.get('email')?.invalid || contactForm.get('msg')?.touched && contactForm.get('msg')?.invalid" class="text-center display-4 alert alert-warning"> The form is incomplete! </h4>
+        </div>
+    </div>
+</form>
+<br><br><br>
+</body>
+<ng-template #sent>
+    <body style="margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #60bc6c !important;">
+    <div class="page-wrap d-flex flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div style="margin-top: 15%;" class="col-md-12 text-center">
+                    <span class="display-1 d-block">Mail has been sent!</span>
+                    <a routerLink="/" class="btn btn-link">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <style>
+            /*.page-wrap {
+                min-height: 50vh;
+            }*/
+        </style>
+        <br><br><br><br><br><br><br>
+        </body>
+    </ng-template>

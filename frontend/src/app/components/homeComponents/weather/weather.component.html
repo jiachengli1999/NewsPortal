@@ -1,0 +1,57 @@
+<div class="card text-center">
+  <div class="">
+    <br>
+    <h3 class="display-4">Search Weather</h3>
+    <hr><br>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm bg-light sec-1">
+          <h4 *ngIf="apiRetrieved==true">{{city}}</h4>
+          <br>
+          <form [formGroup]="selectLocationForm" (ngSubmit)="searchLocation()">
+            <input name='city' formControlName='city' placeholder="Enter City">
+            <br><br>
+            <button type="submit" class="btn btn-primary" [disabled]="selectLocationForm.invalid">Submit</button>
+          </form>
+          <br>
+          <div *ngIf="apiRetrieved==false">
+            <h2 style="font-size: 25px;" class="display-4">{{msg}}!</h2><hr>
+          </div>
+        </div>
+        <div class="col-sm bg-white" *ngFor="let data of weathers">
+          <img class="card-img-top" src={{data.icon}} alt="Card image cap" style='width: 150px;'>
+          <div class="card-body">
+            <h5 class="card-title">{{data.weather}}</h5>
+            <p class="card-text">{{data.temperature}} F</p>
+            <p class="card-text">{{data.date | date: 'MM/dd/yyyy'}}</p>
+            <p class="card-text">{{data.date | date: 'HH:mm'}}</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <br>
+
+    <!-- <form [formGroup]="selectLocationForm" (ngSubmit)="searchLocation()">
+      <input name='city' formControlName='city' placeholder="Enter City">
+      <button type="submit" class="btn btn-primary" [disabled]="selectLocationForm.invalid">Submit</button>
+    </form>
+  </div>
+  <div class="card-body" >
+    <div class="card-deck" *ngIf="apiRetrieved==true">
+      <div class="card" *ngFor="let data of weathers">
+        <img class="card-img-top" src={{data.icon}} alt="Card image cap" style='width: 150px;'>
+        <div class="card-body">
+          <h5 class="card-title">{{data.weather}}</h5>
+          <p class="card-text">{{data.temperature}} F</p>
+          <p class="card-text">{{data.date | date: 'MM/dd/yyyy'}}</p>
+          <p class="card-text">{{data.date | date: 'HH:mm'}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="apiRetrieved==false">
+      <h2 style="font-size: 25px;" class="display-4">{{msg}}!</h2><hr>
+    </div>
+  </div> -->
+
+</div>
+

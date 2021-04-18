@@ -1,0 +1,97 @@
+
+  <!-- <h1>Group Chat</h1>
+  <textarea id="chatMsgThread" placeholder="Chat will appear here..." 
+  cols="100" rows="25"></textarea>
+  <br>
+  <input type="text" id="nickNameInput" placeholder="Enter Nick Name">
+  <br>
+  <textarea id="chatInput" placeholder="Enter Your Chat Message" 
+  cols="100" rows="5" (keydown)="type()" (keyup)="typeoff()"></textarea>
+  <br>
+  <button type="button" (click)="sendChat()" id="sendChatBtn">Send Chat</button>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/socket.io/socket.io.js"></script> -->
+
+<button class="open-button" (click)="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+  <form class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea id="chatMsgThread" placeholder="Chat will appear here..." ></textarea>
+    <input type="text" id="nickNameInput" placeholder="Enter Nick Name">
+    <textarea placeholder="Type message.." id="chatInput" (keydown)="type()" (keyup)="typeoff()" name="msg" 
+      style='min-height: 100px' required></textarea>
+    <button type="submit" class="btn" (click)="sendChat()">Send</button>
+    <button type="button" class="btn cancel" (click)="closeForm()" id="sendChatBtn">Close</button>
+  </form>
+</div>
+
+  <!--script>
+    console.log('Script init');
+    var socket = io("http://localhost:3000");
+
+    sendChatBtn.addEventListener('click', function(e) {
+      console.log('Emitting chat message');
+      
+      socket.emit('chat', {
+        nickName: document.getElementById("nickNameInput").value,
+        chatMsg: document.getElementById("chatInput").value
+      });
+      document.getElementById("chatInput").value="";
+      socket.emit('typeoff',{
+        nickName: document.getElementById("nickNameInput").value,
+      });
+    });
+
+    socket.on("newChat", (data)=>{
+      //console.log(data);
+
+      var msg = data.nickName + ": " + data.message;
+      $("#chatMsgThread").val($("#chatMsgThread").val()+ msg + "\n");
+    });
+
+    $("#chatInput").on("keydown", ()=>{
+      //console.log('typing');
+      socket.emit('type',{
+        nickName: document.getElementById("nickNameInput").value,
+      });
+    });
+
+    $("#chatInput").on("keyup", ()=>{
+      //console.log('typingoff');
+      if(document.getElementById("chatInput").value==""){
+      socket.emit('typeoff',{
+        nickName: document.getElementById("nickNameInput").value,
+      });
+    }else{
+      setTimeout(function(){
+        socket.emit('typeoff',{
+          nickName: document.getElementById("nickNameInput").value,
+        });
+      },1000)
+    }
+    });
+
+
+    socket.on('typing',(data)=>{
+      var msg=data.nickName+" is typing..."
+      if($("#chatMsgThread").val().indexOf(msg)<0){
+      $("#chatMsgThread").val($("#chatMsgThread").val()+ msg + "\n");
+      }
+    });
+    socket.on('typing_off',(data)=>{
+      var msg=$("#chatMsgThread").val();
+      var s=msg.indexOf(data.nickName+" is typing...");
+      if(s>=0){
+        var e=1+msg.indexOf('\n',s);
+        msg=msg.substring(0,s)+msg.substring(e);
+        $("#chatMsgThread").val(msg); 
+      }
+    });
+
+  </script-->
+

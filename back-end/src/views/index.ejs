@@ -1,0 +1,29 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<%-include ./header.ejs%>
+
+    <div class="page-wrap d-flex flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div style="margin-top: 15%;" class="col-md-12 text-center">
+                    <span class="display-1 d-block">24x7 News Admin Site</span>
+                    <div class="mb-4 lead">Add and manage news articles.</div>
+                    <%if(!token){%><a href="/users/login" class="btn btn-link">Log In</a>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%-include ./footer.ejs%>
+
+    <style>
+        body,
+          html {
+              margin: 0;
+              padding: 0;
+              height: 100%;
+              background: #60a3bc !important;
+          }
+          </style>

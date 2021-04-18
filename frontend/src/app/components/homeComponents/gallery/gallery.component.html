@@ -1,0 +1,24 @@
+<div id="carouselExampleCaptions" class="carousel slide shadow-lg" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" *ngFor='let img of imgList; let i=index' 
+    [ngClass]="i==0? 'active' : ''"
+    [attr.data-slide-to]="i"></li>
+  </ol>
+  <div class="carousel-inner" >
+    <div class="carousel-item" *ngFor='let img of imgList' [ngClass]="img.active ? 'active' : ''"> 
+      <img src={{img.img_url}} class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+        <h1>{{img.title|trunc : 100}}</h1>
+        <p>{{img.description|trunc : 100}}</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
